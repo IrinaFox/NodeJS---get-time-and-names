@@ -1,0 +1,16 @@
+div {
+    border: 1px black solid;
+    display: inline-block;
+    background-color: #f1f5a7;
+    vertical-align: top;
+}
+input {
+    display: block;
+}
+
+#timeContent {
+    border: none;
+}
+#namesContent {
+    border: none;
+}

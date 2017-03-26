@@ -3,7 +3,7 @@
 var http = require('http'),
     url = require('url'),
     staticFile = require('node-static'),
-    file = new staticFile.Server('./Client'),
+    file = new staticFile.Server('../Client'),
     requestHandlers = require('./requestHandlers');
 
 function start () {
@@ -11,8 +11,15 @@ function start () {
        var pathname = url.parse(request.url).pathname;
 
        if (pathname === '/getTime') {
-         response.write(requestHandlers.getCurrentTime());
-         response.end();
+           response.writeHead(200, {"Content-Type": "text/plain"});
+           response.write(requestHandlers.getCurrentTime());
+           response.end();
+       }
+
+       if (pathname === '/getNames') {
+           response.writeHead(200, {"Content-Type": "application/json"});
+           response.write(requestHandlers.getNames());
+           response.end();
        }
 
        file.serve(request, response);

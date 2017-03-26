@@ -2,7 +2,7 @@
 
 window.addEventListener('load', function () {
     var buttonGetTime = document.querySelector('.buttonGetTime'),
-        container = document.querySelector('#content');
+        container = document.querySelector('#timeContent');
 
     buttonGetTime.addEventListener('click', getTime, true);
 
@@ -13,7 +13,7 @@ window.addEventListener('load', function () {
         xhr.addEventListener('readystatechange',function () {
             if (xhr.readyState === 4) {
                 if(xhr.status === 200) {
-                    container.innerHTML += xhr.responseText + '</br>';
+                    container.innerHTML = xhr.responseText + '</br>';
                 }
             }
         }, false);
