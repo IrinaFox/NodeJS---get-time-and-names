@@ -1,6 +1,7 @@
 'use strict';
 
-var names = require('./names');
+var names = require('./names'),
+    studentList = require('./studentList.json');
 
 function getCurrentTime () {
     var date = new Date(),
@@ -13,6 +14,11 @@ function getNames () {
     return returnedNames;
 }
 
+function getStudentList () {
+    var studentsString = JSON.stringify(studentList);
+    return studentsString;
+}
+
 exports.getCurrentTime = getCurrentTime;
 exports.getNames = getNames;
-
+exports.getStudentList = getStudentList;

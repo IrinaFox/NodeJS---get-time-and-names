@@ -3,7 +3,7 @@
 var http = require('http'),
     url = require('url'),
     staticFile = require('node-static'),
-    file = new staticFile.Server('../Client'),
+    file = new staticFile.Server('../Client',{cache: 0}),
     requestHandlers = require('./requestHandlers');
 
 function start () {
@@ -19,6 +19,12 @@ function start () {
        if (pathname === '/getNames') {
            response.writeHead(200, {"Content-Type": "application/json"});
            response.write(requestHandlers.getNames());
+           response.end();
+       }
+
+       if (pathname === '/getStudentList') {
+           response.writeHead(200, {"Content-Type": "application/json"});
+           response.write(requestHandlers.getStudentList());
            response.end();
        }
 
